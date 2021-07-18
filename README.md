@@ -22,7 +22,7 @@
   
   
   ### Demo 
-  ![Demo](https://github.com/EmilyNecciai/readme-generator/blob/d8d48154c71fda9a88f5c7a5027938082d675ef4/img/demo.gif)
+  ![Demo](https://github.com/EmilyNecciai/readme-generator/blob/09dcfbe8fb28fab3efa9a4735bb6645aa843dc2e/img/demo-real.gif)
   
 
   ## Installation 
