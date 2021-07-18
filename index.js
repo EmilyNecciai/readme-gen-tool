@@ -3,8 +3,6 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 
-
-
 // TODO: Create an array of questions for user input
 const questions = [    
             
@@ -115,18 +113,23 @@ const questions = [
 
         // LICENSE INFORMATION
     {
-        type: 'confirm',
-        name: 'confirmLicense',
-        message: 'Is your project covered under a license?',
-        default: false,
-    },
-    {
         type: 'list',
-        name: 'license',
+        name: 'licenseChoice',
         message: 'What license does your project have, if any? Go to choosealicense.com for more information on licenses.',
-        choices: ['Apache License 2.0', 'ISC', 'MIT', 'GNU GPLv3'],
-        when: ({ confirmLicense }) => confirmLicense
-
+        choices: [
+            'Apache License 2.0', 
+            'ISC', 
+            'MIT', 
+            'GNU GPLv3', 
+            'None'
+        ],
+        validate: licenseChoice => {
+            if (licenseChoice === "None") {
+            return false;
+            } else {
+            return true;
+            }
+        }
     },
 
         // PROJECT INSTALLATION
@@ -149,8 +152,8 @@ const questions = [
         type: 'input',
         name: 'usageInstructions',
         message: 'Provide instructions to use your project.',
-        validate: installationInstructions => {
-            if (installationInstructions) {
+        validate: usageInstructions => {
+            if (usageInstructions) {
             return true;
             } else {
             console.log('You need to provide instructions to use your project!');
@@ -188,8 +191,7 @@ const questions = [
             }
         }
     }  
-    ]
-;
+];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
@@ -202,6 +204,7 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {
+
     console.log(`
     =================
     Welcome to the ReadMe Generator! 

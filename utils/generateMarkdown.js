@@ -8,34 +8,69 @@
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-// function renderLicenseSection(license) {}
+// function renderLicenseSection(license) {
+
+//   if (!license) {
+//     return "";
+//   } else {
+
+//     return `
+//     ### Licensing 
+//     (Optional)
+//     license.licenseChoice
+//     `
+// }
+// };
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
+  // console.log(data)
+  const { github, licenseChoice, ...info } = data;
 
   return `
-  # ${data.projectTitle}
+  # ${info.projectTitle}
 
   ## Table of Contents
+  - [Description](#project-description)
+    - [Licensing](#licensing)
+    - [Live Site](#live-site)
+    - [Demo](#demo)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contribution](#contribution)
+  - [Testing](#testing)
+  - [Questions](#questions)
+
 
   ## Project Description
+  ${info.description}
 
-  ### Licensing Information & Badge
-
-  ### Live Site
-
-  ### Embedded Video (Optional)
-
-  ## Installation (Optional)
-
-  ## Usage (Optional)
-
-  ## Contribution (Optional)
+  ### Licensing 
+  (Optional)
+  ${licenseChoice}
   
-  ## Testing (Optional)
+  ### Live Site 
+  (Optional)
+  [${info.projectTitle}](${info.liveSiteLink})
 
-  ## Questions?
-  Reach out to the repo owner, ${data.github} at ${data.questionsEmail}.
+  ### Demo 
+  (Optional)
+  ![Demo/Walkthrough](${info.siteDemoLink})
+
+  ## Installation 
+  ${info.installationInstructions}
+
+  ## Usage 
+  ${info.usageInstructions}
+
+  ## Contribution
+  ${info.contributionInstructions}
+
+  ## Testing
+  ${info.testInstructions}
+
+  ## Questions
+  Reach out to the repo owner, ${github} at ${info.questionsEmail}.
   `;
 }
 
