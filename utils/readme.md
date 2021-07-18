@@ -12,16 +12,7 @@
 
   ## Project Description
   undefined
-
-  
-  ### Licensing 
-  (Optional)
-  Apache 2.0
-  
-  [![Generic badge](https://img.shields.io/badge/License-Apache&ensp;2.0-green.svg)](https://choosealicense.com/licenses/apache-2.0/.)
-  
-  
-  
+   
   ### Live Site 
   (Optional)
   [undefined](undefined)
@@ -43,5 +34,5 @@
   undefined
 
   ## Questions
-  Reach out to the repo owner, e at undefined.
+  Reach out to the repo owner, E at undefined.
   

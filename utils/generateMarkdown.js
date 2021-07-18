@@ -50,9 +50,7 @@ function generateMarkdown(data) {
 
   ## Project Description
   ${info.description}
-
-  ${renderLicenseSection(licenseChoice)}
-  
+  ${renderLicenseSection(licenseChoice)} 
   ### Live Site 
   (Optional)
   [${info.projectTitle}](${info.liveSiteLink})
