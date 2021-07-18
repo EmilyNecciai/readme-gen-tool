@@ -8,35 +8,35 @@ const generateMarkdown = require('./utils/generateMarkdown');
 // TODO: Create an array of questions for user input
 const questions = [    
             
-    //     // GITHUB USER NAME
-    // {
-    //     type: 'input',
-    //     name: 'github',
-    //     message: 'Enter your GitHub Username (Required)',
-    //     validate: githubInput => {
-    //         if (githubInput) {
-    //         return true;
-    //         } else {
-    //         console.log('Please enter your GitHub username!');
-    //         return false;
-    //         }
-    // }
-    // },
+        // GITHUB USER NAME
+    {
+        type: 'input',
+        name: 'github',
+        message: 'Enter your GitHub Username (Required)',
+        validate: githubInput => {
+            if (githubInput) {
+            return true;
+            } else {
+            console.log('Please enter your GitHub username!');
+            return false;
+            }
+    }
+    },
 
-    //     // QUESTIONS EMAIL
-    // {
-    //     type: 'input',
-    //     name: 'questionsEmail',
-    //     message: 'Enter an email users can reach out to if they have questions. (Required)',
-    //     validate: questionsEmailInput => {
-    //         if (questionsEmailInput) {
-    //         return true;
-    //         } else {
-    //         console.log('Please enter an email!');
-    //         return false;
-    //         }
-    // }
-    // },    
+        // QUESTIONS EMAIL
+    {
+        type: 'input',
+        name: 'questionsEmail',
+        message: 'Enter an email users can reach out to if they have questions. (Required)',
+        validate: questionsEmailInput => {
+            if (questionsEmailInput) {
+            return true;
+            } else {
+            console.log('Please enter an email!');
+            return false;
+            }
+    }
+    },    
     
         // PROJECT TITLE
     {
@@ -52,162 +52,142 @@ const questions = [
         }
     }
     }
-    // ,
+    ,
 
-    //     // PROJECT DESCRIPTION - INPUT
-    // {
-    //     type: 'input',
-    //     name: 'description',
-    //     message: 'Provide a description of the project (Required)',
-    //     validate: descriptionInput => {
-    //       if (descriptionInput) {
-    //         return true;
-    //       } else {
-    //         console.log('You need to enter a project description!');
-    //         return false;
-    //       }
-    // }
-    // },
+        // PROJECT DESCRIPTION - INPUT
+    {
+        type: 'input',
+        name: 'description',
+        message: 'Provide a description of the project (Required)',
+        validate: descriptionInput => {
+          if (descriptionInput) {
+            return true;
+          } else {
+            console.log('You need to enter a project description!');
+            return false;
+          }
+    }
+    },
 
-    //     // PROJECT DESCRIPTION - LINK TO LIVE SITE
-    // {
-    //     type: 'confirm',
-    //     name: 'confirmLiveLInk',
-    //     message: 'Would you like to enter enter a link to the live site, if it exists?',
-    //     default: false,
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'liveSiteLink',
-    //     message: 'Provide a link to the live site.',
-    //     when: ({ confirmLiveLInk }) => confirmLiveLInk,
-    //     validate: liveSiteLink => {
-    //         if (liveSiteLink) {
-    //         return true;
-    //         } else {
-    //         console.log('You need to enter a link to the live site!');
-    //         return false;
-    //         }
-    // }
-    // },
+        // PROJECT DESCRIPTION - LINK TO LIVE SITE
+    {
+        type: 'confirm',
+        name: 'confirmLiveLInk',
+        message: 'Would you like to enter enter a link to the live site, if it exists?',
+        default: false,
+    },
+    {
+        type: 'input',
+        name: 'liveSiteLink',
+        message: 'Provide a link to the live site.',
+        when: ({ confirmLiveLInk }) => confirmLiveLInk,
+        validate: liveSiteLink => {
+            if (liveSiteLink) {
+            return true;
+            } else {
+            console.log('You need to enter a link to the live site!');
+            return false;
+            }
+    }
+    },
 
-    //     // PROJECT DESCRIPTION - LINK TO WALKTHROUGH
-    // {
-    //     type: 'confirm',
-    //     name: 'confirmDemoLInk',
-    //     message: 'Would you like to embed a video or gif walkthrough or demo, if it exists?',
-    //     default: false,
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'siteDemoLink',
-    //     message: 'Provide a link to embed the gif or video.',
-    //     when: ({ confirmDemoLInk }) => confirmDemoLInk,
-    //     validate: siteDemoLink => {
-    //         if (siteDemoLink) {
-    //         return true;
-    //         } else {
-    //         console.log('You need to enter a link to embed a video or gif walkthrough or demo!');
-    //         return false;
-    //         }
-    // }
-    // },  
+        // PROJECT DESCRIPTION - LINK TO WALKTHROUGH
+    {
+        type: 'confirm',
+        name: 'confirmDemoLInk',
+        message: 'Would you like to embed a video or gif walkthrough or demo, if it exists?',
+        default: false,
+    },
+    {
+        type: 'input',
+        name: 'siteDemoLink',
+        message: 'Provide a link to embed the gif or video.',
+        when: ({ confirmDemoLInk }) => confirmDemoLInk,
+        validate: siteDemoLink => {
+            if (siteDemoLink) {
+            return true;
+            } else {
+            console.log('You need to enter a link to embed a video or gif walkthrough or demo!');
+            return false;
+            }
+    }
+    },  
 
-    //     // LICENSE INFORMATION
-    // {
-    //     type: 'list',
-    //     name: 'license',
-    //     message: 'What license does your project have, if any? Go to choosealicense.com for more information on licenses.',
-    //     choices: ['Apache License 2.0', 'ISC', 'MIT', 'GNU GPLv3']
-    // },
+        // LICENSE INFORMATION
+    {
+        type: 'confirm',
+        name: 'confirmLicense',
+        message: 'Is your project covered under a license?',
+        default: false,
+    },
+    {
+        type: 'list',
+        name: 'license',
+        message: 'What license does your project have, if any? Go to choosealicense.com for more information on licenses.',
+        choices: ['Apache License 2.0', 'ISC', 'MIT', 'GNU GPLv3'],
+        when: ({ confirmLicense }) => confirmLicense
 
-    //     // PROJECT INSTALLATION
-    // {
-    //     type: 'confirm',
-    //     name: 'confirmInstallation',
-    //     message: 'Would you like to enter some installation instructions?',
-    //     default: true,
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'installationInstructions',
-    //     message: 'Provide instructions to install your project.',
-    //     when: ({ confirmInstallation }) => confirmInstallation,
-    //     validate: installationInstructions => {
-    //         if (installationInstructions) {
-    //         return true;
-    //         } else {
-    //         console.log('You need to provide instructions to install your project!');
-    //         return false;
-    //         }
-    // }
-    // },  
+    },
 
-    //     // PROJECT USAGE
-    // {
-    //     type: 'confirm',
-    //     name: 'confirmUsage',
-    //     message: 'Would you like to enter some usage instructions?',
-    //     default: true,
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'usageInstructions',
-    //     message: 'Provide instructions to use your project.',
-    //     when: ({ confirmInstallation }) => confirmInstallation,
-    //     validate: installationInstructions => {
-    //         if (installationInstructions) {
-    //         return true;
-    //         } else {
-    //         console.log('You need to provide instructions to use your project!');
-    //         return false;
-    //         }
-    //     }
-    // },  
+        // PROJECT INSTALLATION
+    {
+        type: 'input',
+        name: 'installationInstructions',
+        message: 'Provide instructions to install your project.',
+        validate: installationInstructions => {
+            if (installationInstructions) {
+            return true;
+            } else {
+            console.log('You need to provide instructions to install your project!');
+            return false;
+            }
+    }
+    },  
+
+        // PROJECT USAGE
+    {
+        type: 'input',
+        name: 'usageInstructions',
+        message: 'Provide instructions to use your project.',
+        validate: installationInstructions => {
+            if (installationInstructions) {
+            return true;
+            } else {
+            console.log('You need to provide instructions to use your project!');
+            return false;
+            }
+        }
+    },  
         
-    //     // PROJECT CONTRIBUTION INSTRUCTIONS
-    // {
-    //     type: 'confirm',
-    //     name: 'confirmContribution',
-    //     message: 'Would you like to enter instructions on how users can contribute to your project?',
-    //     default: false,
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'contributionInstructions',
-    //     message: 'Provide instructions on how users can contribute to your project.',
-    //     when: ({ confirmContribution }) => confirmContribution,
-    //     validate: contributionInstructions => {
-    //         if (contributionInstructions) {
-    //         return true;
-    //         } else {
-    //         console.log('You need to provide instructions on how users can contribute to your project!');
-    //         return false;
-    //         }
-    //     }
-    // },  
+        // PROJECT CONTRIBUTION INSTRUCTIONS
+    {
+        type: 'input',
+        name: 'contributionInstructions',
+        message: 'Provide instructions on how users can contribute to your project.',
+        validate: contributionInstructions => {
+            if (contributionInstructions) {
+            return true;
+            } else {
+            console.log('You need to provide instructions on how users can contribute to your project!');
+            return false;
+            }
+        }
+    },  
     
-    //     // PROJECT TESTS
-    // {
-    //     type: 'confirm',
-    //     name: 'confirmTests',
-    //     message: 'Would you like to enter instructions on how users can test your project?',
-    //     default: false,
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'testInstructions',
-    //     message: 'Provide instructions on how users can test your project.',
-    //     when: ({ confirmTests }) => confirmTests,
-    //     validate: testInstructions => {
-    //         if (testInstructions) {
-    //         return true;
-    //         } else {
-    //         console.log('You need to provide instructions on how users can test your project!');
-    //         return false;
-    //         }
-    //     }
-    // }  
+        // PROJECT TESTS
+    {
+        type: 'input',
+        name: 'testInstructions',
+        message: 'Provide instructions on how users can test your project.',
+        validate: testInstructions => {
+            if (testInstructions) {
+            return true;
+            } else {
+            console.log('You need to provide instructions on how users can test your project!');
+            return false;
+            }
+        }
+    }  
     ]
 ;
 

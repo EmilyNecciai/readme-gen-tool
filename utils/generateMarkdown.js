@@ -12,22 +12,30 @@
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  // const { title } = data;
-
 
   return `
-  # Project Title ${data.projectTitle}
+  # ${data.projectTitle}
+
   ## Table of Contents
+
   ## Project Description
+
   ### Licensing Information & Badge
-  ### Live Site (Optional)
+
+  ### Live Site
+
   ### Embedded Video (Optional)
+
   ## Installation (Optional)
+
   ## Usage (Optional)
+
   ## Contribution (Optional)
+  
   ## Testing (Optional)
+
   ## Questions?
-  Reach out to the repo owner, [NAME] at [EMAIL].
+  Reach out to the repo owner, ${data.github} at ${data.questionsEmail}.
   `;
 }
 
