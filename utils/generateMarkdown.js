@@ -24,17 +24,47 @@ function renderLicenseSection(license) {
 
     return `
   ### Licensing 
-  (Optional)
   ${license}
   ${renderLicenseBadge(license)}
   `
 }
 };
 
+//BONUS FUNCTIONS 
+  // Creates a section for Links to a Live Site
+function renderLinkSection(siteLink) {
+
+  if (!siteLink) {
+    return "";
+  } else {
+
+    return `
+  ### Live Site 
+  [Click to see the live site!](${siteLink})
+  `
+}
+};
+
+  // Creates a section for embedding a video or gif for a Demo
+function renderDemo(demoLink) {
+
+  if (!demoLink) {
+    return "";
+  } else {
+
+    return `
+  ### Demo 
+  ![Demo](${demoLink})
+  `
+}
+};
+
+
+
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   // console.log(data)
-  const { github, licenseChoice, ...info } = data;
+  const { github, licenseChoice, confirmLiveLink, liveSiteLink, siteDemoLink, ...info } = data;
 
   return `
   # ${info.projectTitle}
@@ -51,13 +81,8 @@ function generateMarkdown(data) {
   ## Project Description
   ${info.description}
   ${renderLicenseSection(licenseChoice)} 
-  ### Live Site 
-  (Optional)
-  [${info.projectTitle}](${info.liveSiteLink})
-
-  ### Demo 
-  (Optional)
-  ![Demo/Walkthrough](${info.siteDemoLink})
+  ${renderLinkSection(liveSiteLink)}
+  ${renderDemo(siteDemoLink)}
 
   ## Installation 
   ${info.installationInstructions}
