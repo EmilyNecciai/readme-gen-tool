@@ -128,8 +128,8 @@ const questions = readmeData => {
     {
         type: 'list',
         name: 'license',
-        message: 'What license does your project have? Go to choosealicense.com for more information on licenses. (Select One)',
-        choices: ['Apache License 2.0', 'ISC', 'MIT', 'GNU GPLv3', 'Other', 'None']
+        message: 'What license does your project have, if any? Go to choosealicense.com for more information on licenses.',
+        choices: ['Apache License 2.0', 'ISC', 'MIT', 'GNU GPLv3']
     },
 
         // PROJECT INSTALLATION
