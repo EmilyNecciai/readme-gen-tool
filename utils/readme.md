@@ -1,11 +1,8 @@
 
-  # asdf
+  # undefined
 
   ## Table of Contents
   - [Description](#project-description)
-    - [Licensing](#licensing)
-    - [Live Site](#live-site)
-    - [Demo](#demo)
   - [Installation](#installation)
   - [Usage](#usage)
   - [Contribution](#contribution)
@@ -14,32 +11,28 @@
 
 
   ## Project Description
-  asfda
-
-  ### Licensing 
-  (Optional)
-  Apache License 2.0
-  
+  undefined
+   
   ### Live Site 
   (Optional)
-  [asdf](undefined)
+  [undefined](undefined)
 
   ### Demo 
   (Optional)
   ![Demo/Walkthrough](undefined)
 
   ## Installation 
-  sdfhja
+  undefined
 
   ## Usage 
-  asfda
+  undefined
 
   ## Contribution
-  asdf
+  undefined
 
   ## Testing
-  asfd
+  undefined
 
   ## Questions
-  Reach out to the repo owner, En at sfa.
+  Reach out to the repo owner, E at undefined.
   
