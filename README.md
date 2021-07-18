@@ -23,6 +23,7 @@
   
   ### Demo 
   ![Demo](https://github.com/EmilyNecciai/readme-generator/blob/09dcfbe8fb28fab3efa9a4735bb6645aa843dc2e/img/demo-real.gif)
+  > You can see the demo at a larger scale [here](https://drive.google.com/file/d/1m4E1akAkGWw9paSyyjatlKRhVMZ8iCwd/view).
   
 
   ## Installation 
