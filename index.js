@@ -1,25 +1,11 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-
+const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
-const questions = readmeData => {
-
-    console.log(`
-    =================
-    Welcome to the ReadMe Generator! 
-    Answer the following question prompts to feed information to the generator.
-    =================
-    `);
-
-    if (!readmeData) {
-        readmeData = [];
-      }    
-    
-    return inquirer
-    .prompt([
-        
+const questions = [    
+            
         // GITHUB USER NAME
     {
         type: 'input',
@@ -63,7 +49,8 @@ const questions = readmeData => {
         return false;
         }
     }
-    },
+    }
+    ,
 
         // PROJECT DESCRIPTION - INPUT
     {
@@ -127,23 +114,29 @@ const questions = readmeData => {
         // LICENSE INFORMATION
     {
         type: 'list',
-        name: 'license',
+        name: 'licenseChoice',
         message: 'What license does your project have, if any? Go to choosealicense.com for more information on licenses.',
-        choices: ['Apache License 2.0', 'ISC', 'MIT', 'GNU GPLv3']
+        choices: [
+            'Apache License 2.0', 
+            'ISC', 
+            'MIT', 
+            'GNU GPLv3', 
+            'None'
+        ],
+        validate: licenseChoice => {
+            if (licenseChoice === "None") {
+            return false;
+            } else {
+            return true;
+            }
+        }
     },
 
         // PROJECT INSTALLATION
     {
-        type: 'confirm',
-        name: 'confirmInstallation',
-        message: 'Would you like to enter some installation instructions?',
-        default: true,
-    },
-    {
         type: 'input',
         name: 'installationInstructions',
         message: 'Provide instructions to install your project.',
-        when: ({ confirmInstallation }) => confirmInstallation,
         validate: installationInstructions => {
             if (installationInstructions) {
             return true;
@@ -156,18 +149,11 @@ const questions = readmeData => {
 
         // PROJECT USAGE
     {
-        type: 'confirm',
-        name: 'confirmUsage',
-        message: 'Would you like to enter some usage instructions?',
-        default: true,
-    },
-    {
         type: 'input',
         name: 'usageInstructions',
         message: 'Provide instructions to use your project.',
-        when: ({ confirmInstallation }) => confirmInstallation,
-        validate: installationInstructions => {
-            if (installationInstructions) {
+        validate: usageInstructions => {
+            if (usageInstructions) {
             return true;
             } else {
             console.log('You need to provide instructions to use your project!');
@@ -178,16 +164,9 @@ const questions = readmeData => {
         
         // PROJECT CONTRIBUTION INSTRUCTIONS
     {
-        type: 'confirm',
-        name: 'confirmContribution',
-        message: 'Would you like to enter instructions on how users can contribute to your project?',
-        default: false,
-    },
-    {
         type: 'input',
         name: 'contributionInstructions',
         message: 'Provide instructions on how users can contribute to your project.',
-        when: ({ confirmContribution }) => confirmContribution,
         validate: contributionInstructions => {
             if (contributionInstructions) {
             return true;
@@ -200,16 +179,9 @@ const questions = readmeData => {
     
         // PROJECT TESTS
     {
-        type: 'confirm',
-        name: 'confirmTests',
-        message: 'Would you like to enter instructions on how users can test your project?',
-        default: false,
-    },
-    {
         type: 'input',
         name: 'testInstructions',
         message: 'Provide instructions on how users can test your project.',
-        when: ({ confirmTests }) => confirmTests,
         validate: testInstructions => {
             if (testInstructions) {
             return true;
@@ -219,27 +191,33 @@ const questions = readmeData => {
             }
         }
     }  
-    ])
-    
-    .then(projectData => {
-        readmeData.push(projectData);
-        if (projectData.confirmAddProject) {
-          return promptProject(readmeData);
-        } else {
-          return readmeData;
-        }
-    });
-  };
+];
 
 // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, err => {
+        if (err) throw new Error(err);
+
+        console.log("Readme Generated! Go to readme.md in the utils folder to see it!")
+    })
+};
 
 // TODO: Create a function to initialize app
-// function init() {}
+function init() {
+
+    console.log(`
+    =================
+    Welcome to the ReadMe Generator! 
+    Answer the following question prompts to feed information to the generator.
+    =================
+    `);
+
+    inquirer.prompt(questions)
+    .then(readmeData => {
+        // console.log(readmeData);
+        writeToFile("./utils/readme.md", generateMarkdown(readmeData))
+    })
+};
 
 // Function call to initialize app
-questions()
-.then(readmeData => {
-    console.log(readmeData)
-})
-  ;
+init();
