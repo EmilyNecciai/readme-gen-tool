@@ -38,5 +38,5 @@
   You can test this project with your own dummy data.
 
   ## Questions
-  Reach out to the repo owner, EmilyNecciai at enmayeski@gmail.com.
+  Reach out to the repo owner, [EmilyNecciai](https://github.com/EmilyNecciai) at enmayeski@gmail.com.
   
