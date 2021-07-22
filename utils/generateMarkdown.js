@@ -97,7 +97,7 @@ function generateMarkdown(data) {
   ${info.testInstructions}
 
   ## Questions
-  Reach out to the repo owner, ${github} at ${info.questionsEmail}.
+  Reach out to the repo owner, [${github}](https://github.com/${github}) at ${info.questionsEmail}.
   `;
 }
 
